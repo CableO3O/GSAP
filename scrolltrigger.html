@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap css -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'/>
+    <style>
+        section:nth-child(even){
+            background-color: lightgray;
+            justify-content: center;
+        }
+        section h2{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            color: white;
+            font-size: 2rem;
+            background-color: darkmagenta;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+    <!-- bootstrap js-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+    <!-- gsap -->
+    <script src="./gsap/gsap.js"></script>
+    <script>
+        // 註冊套件
+        gsap.registerPlugin(ScrollTrigger);
+        const tween=gsap.to('.a1',{
+            // 
+            scrollTrigger:{
+                trigger:'a1',
+                // 預設
+                // start:'top bottom',
+                // end:'bottom top',
+                start:'center 50%',
+                end:'bottom 50%',
+                marker:true
+            },
+            x:'85vw',
+            duration:3,
+            ease:'none',
+        })
+    </script>
+</body>
+</html>
