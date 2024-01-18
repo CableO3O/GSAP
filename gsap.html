@@ -127,13 +127,22 @@
             //x:'+=100',//相對位置
             //x:'random(0,300)',//隨機位置
             duration:1,
+            paused:true,//載入時暫停
             //delay:3, //延遲3秒開始，只有第1次
             // repeat不算初始撥放，所以repeat:2會撥放3次
             // repeat:2, 
             repeat:-1, //無限重複
             //repeatDelay:2, //重複播放的delay
             //repeatRefresh:true,//重複播放時會記錄前一次位置在執行，需與相對位置、隨機位置搭配使用
-            yoyo:true//重複播放時會來回撥放
+            yoyo:true,//重複播放時會來回撥放
+            ease:'back',//動畫速率
+        })
+        //tween提供許多方法來控制gsap.to()、gsap.from()、gsap fromTo()
+        $('#play').on('click',function () {
+            tween4.play()
+        })
+        $('#pause').on('click',function () {
+            tween4.pause()
         })
     </script>
 </body>
