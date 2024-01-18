@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- bootstrap css -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
     <style>
-        section:nth-child(even){
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        section:nth-child(odd) {
+            background-color: lightcyan;
+        }
+
+        section:nth-child(even) {
             background-color: lightgray;
             justify-content: center;
         }
-        section h2{
+
+        section h2 {
             position: absolute;
             left: 0;
             top: 0;
         }
-        .box{
+
+        .box {
             width: 100px;
             height: 100px;
             color: white;
@@ -26,33 +40,107 @@
             justify-content: center;
             align-items: center;
         }
+
+        .active {
+            background-color: red;
+        }
     </style>
 </head>
+
 <body>
+    <section></section>
+
+    <section id="section01">
+        <h2>1.設定 trigger</h2>
+        <div class="box a1">a1</div>
+    </section>
+
+    <section></section>
+
+    <section id="section02">
+        <h2>2.設定 toggleAction</h2>
+        <div class="box b1">b1</div>
+        <div class="box b2 mt-5">b2</div>
+    </section>
+
+    <section></section>
+
+    <section id="section03">
+        <h2>3.設定 scrub</h2>
+        <div class="box c1">c1</div>
+    </section>
+
+    <section></section>
     <!-- jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
     <!-- bootstrap js-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
     <!-- gsap -->
     <script src="./gsap/gsap.js"></script>
+    <!-- 引入 scrollTrigger plugin -->
+    <script src="./gsap/ScrollTrigger.js"></script>
     <script>
         // 註冊套件
         gsap.registerPlugin(ScrollTrigger);
-        const tween=gsap.to('.a1',{
-            // 
-            scrollTrigger:{
-                trigger:'a1',
+        const tween1 = gsap.to('.a1', {
+            /*
+            start 與 end
+            1. 第一數值為 trigger 的位置，第二數值為滾動軸位置
+            2. 值可為 top、center、bottom 或是數字(100px, 50%)，也可以 +=100、-=100 這類相對數值
+            */
+            scrollTrigger: {
+                trigger: '.a1',
                 // 預設
                 // start:'top bottom',
                 // end:'bottom top',
-                start:'center 50%',
-                end:'bottom 50%',
-                marker:true
+                start: '100px 60%',
+                end: 'bottom 30%',
+                // markers: true
             },
-            x:'85vw',
-            duration:3,
-            ease:'none',
+            x: '85vw',
+            duration: 3,
+            ease: 'none',
+        })
+
+        // 2.設定 toggleActions
+        const tween2 = gsap.to('.b1', {
+            scrollTrigger: {
+                trigger: '.b1',
+                start: 'top center',
+                end: 'bottom 20%',
+                toggleActions: 'play pause resume reverse',
+                // toggleClass: {
+                //     targets: ['.b2'],//要加class的元素
+                //     className: 'active'//要加的class名稱
+                // },
+                onEnter() {
+                    $('.b2').addClass('active')
+                },
+                onLeave() {
+                    $('.b2').removeClass('active')
+
+                },
+                // markers: true
+            },
+            x: '85vw',
+            duration: 3,
+            ease: 'none'
+        })
+        // 3.設定scrub
+        const tween3 = gsap.to('.c1', {
+            scrollTrigger: {
+                trigger: '.c1',
+                start: 'top 80%',
+                end: 'bottom 20%',
+                // scrub: true,
+                markers: true
+            },
+            x: '85vw',
+            rotation: 3600,
+            backgroundColor: 'red',
+            ease: 'none'
         })
     </script>
 </body>
+
 </html>
