@@ -53,6 +53,21 @@
              })   
             })
         }
+        // 建立星星動畫
+        gsap.to('.star',{
+            'font-size':`random(12,50)`,
+            filter:'drop-shadow(0 0 30px rgba(255,255,0,1))',
+            left:'+=random(-10,10)%',
+            x:'random(-50,50)',
+            y:'random(-50,50)',
+            rotationY:'-180',
+            scale:'random(1,2)',
+            duration:'random(5,10)',
+            repeat:-1,
+            repeatRefresh:true,
+            ease:'back',
+            stagger:0.1
+        })
     </script>
 </body>
 </html>
