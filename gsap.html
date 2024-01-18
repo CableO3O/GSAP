@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP - tween 補間動畫</title>
+    <!-- bootstrap css -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'/>
+    <style>
+        body{
+            padding: 500px;
+        }
+        h3{
+            margin: 20px 0;
+        }
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6,
+        .box7,
+        .box8,
+        .box9,
+        .box10,
+        .box11{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            margin: 5px;
+        }
+        .box2{
+            background-color: red;
+        }
+        .box3{
+            background-color: green;
+        }
+        .box4{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>1.選擇目標</h1>
+        <div class="box1"></div>
+        <h1>2.選擇群組使用陣列</h1>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box3"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box4"></div>
+        <div class="box4"></div>
+        <h1>3.設定CSS屬性</h1>
+        <div class="box5" style="margin: auto;"></div>
+        <p id="word">
+            重新第二章製作做到還可以瀏覽器篇文章，人家三個卻是本帖，但他奧客整體滿意很大精靈看著像是，身上各級肯定做好，相當動物對此感動客戶照顧理想由此由此包含版權所有，解決方案福建電力，太多一絲閲讀者一聲，日。重新第二章製作做到還可以瀏覽器篇文章，人家三個卻是本帖，但他奧客整體滿意很大精靈看著像是，身上各級肯定做好，相當動物對此感動客戶照顧理想由此由此包含版權所有，解決方案福建電力，太多一絲閲讀者一聲，日。重新第二章製作做到還可以瀏覽器篇文章，人家三個卻是本帖，但他奧客整體滿意很大精靈看著像是，身上各級肯定做好，相當動物對此感動客戶照顧理想由此由此包含版權所有，解決方案福建電力，太多一絲閲讀者一聲，日。
+        </p>
+    </div>
+    <!-- jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+    <!-- bootstrap js-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+    <!-- gsap -->
+    <script src="./gsap/gsap.js"></script>
+    <script>
+        // 1.選擇目標-------------------------------------------------------
+        // 抓目標的3種方式
+        const b1= document.querySelector('.box1')//js
+        const b2=$('.box1')//jq
+        //第三種gsap推薦，使用css規範的選擇器
+        const tween1=gsap.to('.box1',{
+            x:500,
+            // 動畫時間
+            duration:1
+        })
+        // 2.選擇群組使用陣列----------------------------------------------------
+        // js、jq選擇方式
+        const dom1=document.querySelectorAll('.box2')
+        const dom2=document.querySelectorAll('.box3')
+        const dom3=document.querySelectorAll('.box4')       
+        const jq1=$('.box2')
+        const jq2=$('.box3')
+        const jq3=$('.box4')
+        // const tween2=gsap.to([dom1,dom2,dom3],{
+        //     x:500,
+        //     duration:1
+        // }) 
+        // 選擇群組一樣推薦使用css規範的選擇器
+        const tween2=gsap.to('.box2,.box3,.box4',{
+            x:500,
+            duration:1
+        })
+        //3.設定CSS屬性-------------------------------------------------
+        // CSS的屬性都可以使用
+        const tween3 =gsap.to('.box5',{
+            duration:2,
+            x:100,//translateX
+            y:100,//translateY
+            rotation:720,//rotate
+            scale:2,//scale
+            width:100,
+            height:100,
+            border:'5px solid red',
+            boxShadow:'0 0 10px rgba(225,0,0,1)',
+            backgroundColor:'transparent',
+            backdropFilter:'blur(2px)',//物件透明讓背後的東西變模糊
+        }) 
+
+        const word=gsap.to('#word',{
+            color:'random([red,green,blue])',//random隨機
+            fontWeight:'bold',
+            fontSize:'1.5rem',
+            lineHeight:2,
+            letterSpacing:'0.5rem',
+        })
+    </script>
+</body>
+</html>
