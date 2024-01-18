@@ -59,6 +59,10 @@
         <p id="word">
             重新第二章製作做到還可以瀏覽器篇文章，人家三個卻是本帖，但他奧客整體滿意很大精靈看著像是，身上各級肯定做好，相當動物對此感動客戶照顧理想由此由此包含版權所有，解決方案福建電力，太多一絲閲讀者一聲，日。重新第二章製作做到還可以瀏覽器篇文章，人家三個卻是本帖，但他奧客整體滿意很大精靈看著像是，身上各級肯定做好，相當動物對此感動客戶照顧理想由此由此包含版權所有，解決方案福建電力，太多一絲閲讀者一聲，日。重新第二章製作做到還可以瀏覽器篇文章，人家三個卻是本帖，但他奧客整體滿意很大精靈看著像是，身上各級肯定做好，相當動物對此感動客戶照顧理想由此由此包含版權所有，解決方案福建電力，太多一絲閲讀者一聲，日。
         </p>
+        <h1>4.設定動畫屬性</h1>
+        <div class="box6"></div>
+        <button id="play">play</button>
+        <button id="pause">pause</button>
     </div>
     <!-- jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
@@ -116,6 +120,20 @@
             fontSize:'1.5rem',
             lineHeight:2,
             letterSpacing:'0.5rem',
+        })
+        // 4.設定動畫屬性-----------------------------------------
+        const tween4=gsap.to('.box6',{
+            x:500,
+            //x:'+=100',//相對位置
+            //x:'random(0,300)',//隨機位置
+            duration:1,
+            //delay:3, //延遲3秒開始，只有第1次
+            // repeat不算初始撥放，所以repeat:2會撥放3次
+            // repeat:2, 
+            repeat:-1, //無限重複
+            //repeatDelay:2, //重複播放的delay
+            //repeatRefresh:true,//重複播放時會記錄前一次位置在執行，需與相對位置、隨機位置搭配使用
+            yoyo:true//重複播放時會來回撥放
         })
     </script>
 </body>
